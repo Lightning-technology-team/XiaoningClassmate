@@ -12,8 +12,8 @@ const versionConfig = {
         {
             version: 'v2.0.0',          // 版本号
             date: '2026-06-29',         // 发布日期
-            description: '全新UI设计，新增20个表情包', // 简短描述
-            filename: 'emoji-pack-v2.zip' // 压缩包文件名（存放在根目录 ./ 下）
+            description: '完善部分内容，新增“我”界面、登录和注册界面，可以自定义用户名，优化部分设计逻辑，提升使用体验', // 简短描述
+            filename: 'XiaoningClassmateV2.0.apk' // 压缩包文件名（存放在根目录 ./ 下）
         },
     ]
 };
