@@ -7,49 +7,49 @@ const versionConfig = {
     // 更新日志文件路径（相对于当前页面，点击“更新日志”按钮时打开）
     changelogLink: './README.md',
 
-    // 历史版本列表（按从新到旧排列，第一个会自动显示“最新”标签）
+    // 历史版本列表（按从旧到新排列，最后一个为最新版本，建议前端将“最新”标签显示在末尾）
     versions: [
         {
-            version: 'v2.0.0',          // 版本号
-            date: '2026-06-29',         // 发布日期
-            description: '完善部分内容，新增“我”界面、登录和注册界面，可以自定义用户名，优化部分设计逻辑，提升使用体验', // 简短描述
-            filename: 'XiaoningClassmateV2.0.apk' // 压缩包文件名（存放在根目录 ./ 下）
+            version: 'v2.0.0',
+            date: '2026-06-29',
+            description: '完善部分内容，新增“我”界面、登录和注册界面，可以自定义用户名，优化部分设计逻辑，提升使用体验',
+            filename: 'XiaoningClassmateV2.0.apk'
         },
         {
-            version: 'v2.1.0',          // 版本号
-            date: '2026-06-29',         // 发布日期
-            description: '完善部分内容，提升使用体验', // 简短描述
-            filename: 'XiaoningClassmate2.1.apk' // 压缩包文件名（存放在根目录 ./ 下）
+            version: 'v2.1.0',
+            date: '2026-06-29',
+            description: '完善部分内容，提升使用体验',
+            filename: 'XiaoningClassmate2.1.apk'
         },
         {
-            version: 'v2.2.0',          // 版本号
-            date: '2026-06-29',         // 发布日期
-            description: '完善部分内容，优化部分设计逻辑，提升使用体验', // 简短描述
-            filename: '小柠同学V2.2.apk' // 压缩包文件名（存放在根目录 ./ 下）
+            version: 'v2.2.0',
+            date: '2026-06-29',
+            description: '完善部分内容，优化部分设计逻辑，提升使用体验',
+            filename: '小柠同学V2.2.apk'
         },
         {
-            version: 'v2.2.1',          // 版本号
-            date: '2026-06-30',         // 发布日期
-            description: '完善部分内容，优化部分设计逻辑，提升使用体验', // 简短描述
-            filename: 'V2.2.1.apk' // 压缩包文件名（存放在根目录 ./ 下）
+            version: 'v2.2.1',
+            date: '2026-06-30',
+            description: '完善部分内容，优化部分设计逻辑，提升使用体验',
+            filename: 'V2.2.1.apk'
         },
         {
-            version: 'v2.2.9',          // 版本号
-            date: '2026-06-30',         // 发布日期
-            description: '优化部分设计逻辑，提升使用体验', // 简短描述
-            filename: '小柠同学2.2.9.apk' // 压缩包文件名（存放在根目录 ./ 下）
+            version: 'v2.2.9',
+            date: '2026-06-30',
+            description: '优化部分设计逻辑，提升使用体验',
+            filename: '小柠同学2.2.9.apk'
         },
         {
-            version: 'v2.3.0',          // 版本号
-            date: '2026-06-30',         // 发布日期
-            description: '完善部分内容，新增“联网搜索”功能，优化部分设计逻辑，提升使用体验', // 简短描述
-            filename: '小柠同学2.3.0.apk' // 压缩包文件名（存放在根目录 ./ 下）
+            version: 'v2.3.0',
+            date: '2026-06-30',
+            description: '完善部分内容，新增“联网搜索”功能，优化部分设计逻辑，提升使用体验',
+            filename: '小柠同学2.3.0.apk'
         },
         {
-            version: 'v2.3.1',          // 版本号
-            date: '2026-06-30',         // 发布日期
-            description: '完善部分内容，紧急修复一个登录bug，提升使用体验', // 简短描述
-            filename: 'XiaoningClassmate.apk' // 压缩包文件名（存放在根目录 ./ 下）
-        },
+            version: 'v2.3.1',
+            date: '2026-06-30',
+            description: '完善部分内容，紧急修复一个登录bug，提升使用体验',
+            filename: 'XiaoningClassmate.apk'
+        }
     ]
 };
