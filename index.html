@@ -1362,7 +1362,7 @@
             openBtn.addEventListener('click', openModal);
             closeBtn.addEventListener('click', closeModal);
 
-            // 渲染版本列表
+            // 渲染版本列表（显示顺序由新到旧，但配置文件保持从旧到新）
             function renderVersions() {
                 // 检查 versionConfig 是否存在
                 if (typeof versionConfig === 'undefined') {
@@ -1384,10 +1384,13 @@
                     return;
                 }
 
+                // 🟢 关键改动：反转数组，使最新版本显示在最前面
+                const reversed = versions.slice().reverse();
+
                 let html = '';
-                versions.forEach(function(item, index) {
-                    // ✅ 修改为判断最后一个版本为“最新”
-                    const isLatest = (index === versions.length - 1);
+                reversed.forEach(function(item, index) {
+                    // 反转后第一个即为最新版本
+                    const isLatest = (index === 0);
                     const badgeHtml = isLatest ?
                         '<span class="version-badge">最新</span>' :
                         '';
@@ -1417,9 +1420,6 @@
                 div.textContent = text;
                 return div.innerHTML;
             }
-
-            // 如果配置已加载，立即渲染一次（但可能模态框还没打开）
-            // 我们会在打开时重新渲染，所以这里不重复执行
         })();
     </script>
 
