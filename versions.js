@@ -43,13 +43,13 @@ const versionConfig = {
             version: 'v2.3.0',          // 版本号
             date: '2026-06-30',         // 发布日期
             description: '完善部分内容，新增“联网搜索”功能，优化部分设计逻辑，提升使用体验', // 简短描述
-            filename: 小柠同学2.3.0.apk' // 压缩包文件名（存放在根目录 ./ 下）
+            filename: '小柠同学2.3.0.apk' // 压缩包文件名（存放在根目录 ./ 下）
         },
         {
             version: 'v2.3.1',          // 版本号
             date: '2026-06-30',         // 发布日期
             description: '完善部分内容，紧急修复一个登录bug，提升使用体验', // 简短描述
-            filename: '小柠同学V2.3.1.apk' // 压缩包文件名（存放在根目录 ./ 下）
+            filename: 'XiaoningClassmate.apk' // 压缩包文件名（存放在根目录 ./ 下）
         },
     ]
 };
