@@ -899,6 +899,7 @@
             transform: rotate(90deg);
         }
 
+        /* ===== 版本列表样式（关键修复） ===== */
         .versions-list {
             padding: 20px 28px 28px;
             overflow-y: auto;
@@ -907,15 +908,16 @@
 
         .version-item {
             display: flex;
-            flex-wrap: wrap;
-            align-items: center;
+            align-items: center;           /* 垂直居中 */
             justify-content: space-between;
-            padding: 16px 18px;
+            padding: 12px 16px;
             border-radius: var(--radius-sm);
             background: var(--bg-start);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             border: 1px solid rgba(108, 92, 231, 0.06);
             transition: var(--transition);
+            flex-wrap: nowrap;             /* 强制一行，不换行 */
+            gap: 12px;                    /* 统一间距 */
         }
 
         .version-item:hover {
@@ -927,25 +929,30 @@
             display: flex;
             flex-wrap: wrap;
             align-items: baseline;
-            gap: 8px 14px;
+            gap: 6px 12px;
+            flex: 1;                      /* 占据剩余空间 */
+            min-width: 0;                 /* 防止溢出 */
         }
 
         .version-tag {
             font-weight: 700;
-            font-size: 16px;
+            font-size: 15px;
             color: var(--text-primary);
+            white-space: nowrap;
         }
 
         .version-date {
             font-size: 13px;
             color: var(--text-muted);
+            white-space: nowrap;
         }
 
         .version-desc {
             font-size: 14px;
             color: var(--text-secondary);
-            width: 100%;
-            margin-top: 4px;
+            width: 100%;                  /* 强制占满一行，不与其他元素同行 */
+            flex-basis: 100%;
+            margin-top: 2px;
         }
 
         .version-badge {
@@ -956,22 +963,25 @@
             padding: 2px 12px;
             border-radius: 100px;
             letter-spacing: 0.3px;
+            white-space: nowrap;
         }
 
         .version-download-btn {
             background: var(--primary);
             color: #fff;
             border: none;
-            padding: 8px 20px;
+            padding: 6px 16px;
             border-radius: 100px;
             font-size: 13px;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 6px;
             text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            flex-shrink: 0;               /* 防止按钮被压缩 */
+            white-space: nowrap;
         }
 
         .version-download-btn:hover {
@@ -1064,6 +1074,17 @@
             .nav-changelog-link span {
                 display: none;
             }
+
+            /* 小屏设备上版本项调整为可换行，但保留按钮 */
+            .version-item {
+                flex-wrap: wrap;
+            }
+            .version-info {
+                flex: 1 1 100%;
+            }
+            .version-download-btn {
+                margin-left: auto;  /* 靠右 */
+            }
         }
 
         @media (max-width: 520px) {
@@ -1095,6 +1116,21 @@
             .footer {
                 flex-direction: column;
                 text-align: center;
+            }
+
+            .versions-modal-content {
+                max-width: 100%;
+                margin: 12px;
+                border-radius: 20px;
+            }
+            .versions-list {
+                padding: 16px;
+            }
+            .version-item {
+                padding: 10px 12px;
+            }
+            .version-desc {
+                font-size: 13px;
             }
         }
     </style>
@@ -1244,14 +1280,12 @@
                 <p>支持文本、语音、图像理解，用更丰富的方式感知你的需求。</p>
                 <span class="tag">多模态</span>
             </div>
-            <!-- 删除了“隐私安全”卡片 -->
             <div class="feature-card">
                 <div class="icon-wrap">🌙</div>
                 <h3>陪伴模式</h3>
                 <p>夜深人静时，陪你聊天、分享心情，做一个有温度的倾听者。</p>
                 <span class="tag">情感陪伴</span>
             </div>
-            <!-- 填补一个占位（保持网格美观） -->
             <div class="feature-card">
                 <div class="icon-wrap">⚡</div>
                 <h3>极速响应</h3>
@@ -1362,9 +1396,8 @@
             openBtn.addEventListener('click', openModal);
             closeBtn.addEventListener('click', closeModal);
 
-            // 渲染版本列表（显示顺序由新到旧，但配置文件保持从旧到新）
+            // 渲染版本列表（由新到旧显示）
             function renderVersions() {
-                // 检查 versionConfig 是否存在
                 if (typeof versionConfig === 'undefined') {
                     listContainer.innerHTML = `
                             <div class="versions-empty">
@@ -1384,12 +1417,11 @@
                     return;
                 }
 
-                // 🟢 关键改动：反转数组，使最新版本显示在最前面
+                // 反转数组，使最新版本显示在最前面
                 const reversed = versions.slice().reverse();
 
                 let html = '';
                 reversed.forEach(function(item, index) {
-                    // 反转后第一个即为最新版本
                     const isLatest = (index === 0);
                     const badgeHtml = isLatest ?
                         '<span class="version-badge">最新</span>' :
@@ -1413,7 +1445,6 @@
                 listContainer.innerHTML = html;
             }
 
-            // 简单的转义（防止 XSS）
             function escapeHtml(text) {
                 if (!text) return '';
                 const div = document.createElement('div');
