@@ -1386,7 +1386,8 @@
 
                 let html = '';
                 versions.forEach(function(item, index) {
-                    const isLatest = (index === 0);
+                    // ✅ 修改为判断最后一个版本为“最新”
+                    const isLatest = (index === versions.length - 1);
                     const badgeHtml = isLatest ?
                         '<span class="version-badge">最新</span>' :
                         '';
