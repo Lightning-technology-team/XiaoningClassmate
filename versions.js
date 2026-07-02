@@ -50,7 +50,7 @@ const versionConfig = {
             date: '2026-07-01',
             description: '完善部分内容，紧急修复一个登录bug，提升使用体验',
             filename: 'XiaoningClassmate.apk'
-        }
+        },
         {
             version: 'v2.4.0',
             date: '2026-07-02',
