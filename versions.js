@@ -41,15 +41,21 @@ const versionConfig = {
         },
         {
             version: 'v2.3.0',
-            date: '2026-06-30',
+            date: '2026-07-01',
             description: '完善部分内容，新增“联网搜索”功能，优化部分设计逻辑，提升使用体验',
             filename: '小柠同学2.3.0.apk'
         },
         {
             version: 'v2.3.1',
-            date: '2026-06-30',
+            date: '2026-07-01',
             description: '完善部分内容，紧急修复一个登录bug，提升使用体验',
             filename: 'XiaoningClassmate.apk'
+        }
+        {
+            version: 'v2.4.0',
+            date: '2026-07-02',
+            description: '新增“宝贝回家”功能，可以查看走失儿童的信息，助力各个宝贝回家，愿天下无拐，希望这个功能可以帮助到有需要的人',
+            filename: '小柠同学2.4.apk'
         }
     ]
 };
