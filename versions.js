@@ -86,13 +86,13 @@ const versionConfig = {
         },
         {
             version: 'v2.4.7',
-            date: '2026-07-02',
+            date: '2026-07',
             description: '集中修复了许多bug，提升使用体验，请在V2.4.6版本的用户尽快更新的V2.4.7版本从而优化使用体验',
             filename: '小柠同学2.4.7.apk'
         },
         {
             version: 'v2.5.0',
-            date: '2026-07-02',
+            date: '2026-07',
             description: '有奖竞猜活动开始啦，欢迎参与！集中修复了许多bug，提升使用体验。',
             filename: '小柠同学2.5.0.apk'
         }，
