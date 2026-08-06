@@ -110,7 +110,7 @@ const versionConfig = {
         },
         {
             version: 'v2.6.2',
-            date: '2026-07',
+            date: '2026-08-05',
             description: '将林中图床作为备用图床服务商，提升服务稳定性',
             filename: '小柠同学2.6.2.apk'
         }
