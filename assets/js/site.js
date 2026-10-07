@@ -241,19 +241,37 @@
         });
     }
 
-    /* ---------- 按钮：磁吸跟手 ---------- */
+    /* ---------- 按钮：磁吸跟手（用 translate，避免覆盖按下动画） ---------- */
     if (finePointer) {
         document.querySelectorAll('.btn').forEach((btn) => {
             btn.addEventListener('pointermove', (e) => {
                 const r = btn.getBoundingClientRect();
                 const dx = (e.clientX - (r.left + r.width / 2)) / r.width;
                 const dy = (e.clientY - (r.top + r.height / 2)) / r.height;
-                btn.style.transform = 'translate(' + (dx * 6).toFixed(2) + 'px, '
-                    + (dy * 4 - 1).toFixed(2) + 'px)';
+                btn.style.translate = (dx * 6).toFixed(2) + 'px ' + (dy * 4).toFixed(2) + 'px';
             });
-            btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
+            btn.addEventListener('pointerleave', () => { btn.style.translate = ''; });
         });
     }
+
+    /* ---------- 点击：涟漪反馈 ---------- */
+    const TAPPABLE = '.card, .project-card, .btn, .row, .note, .callout, .release';
+    document.addEventListener('pointerdown', (e) => {
+        if (e.button !== 0 || !e.target.closest) return;
+        const host = e.target.closest(TAPPABLE);
+        if (!host) return;
+        const rect = host.getBoundingClientRect();
+        if (!rect.width || !rect.height) return;
+        const size = Math.max(rect.width, rect.height) * 2.1;
+        const ripple = document.createElement('span');
+        ripple.className = 'ripple is-on';
+        ripple.style.width = size + 'px';
+        ripple.style.height = size + 'px';
+        ripple.style.left = (e.clientX - rect.left) + 'px';
+        ripple.style.top = (e.clientY - rect.top) + 'px';
+        host.appendChild(ripple);
+        ripple.addEventListener('animationend', () => ripple.remove());
+    }, { passive: true });
 
     /* ---------- 数字滚动 ---------- */
     const values = document.querySelectorAll('.stat .value');
