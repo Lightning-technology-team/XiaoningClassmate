@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="下载小柠同学 —— 获取最新版 Android 应用，查看当前版本信息与历史版本。支持 Android 5.1 及以上，完全免费。" />
+    <title>下载 · 小柠同学</title>
+
+    <link rel="icon" type="image/jpeg" href="./logo.jpg" />
+    <link rel="apple-touch-icon" href="./logo.jpg" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/misans@5.0.0/lib/Normal/MiSansVF.min.css" />
+    <script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.__motionReady)document.documentElement.classList.remove('js');},2500);</script>
+    <link rel="stylesheet" href="./assets/css/site.css" />
+</head>
+<body>
+
+<header class="nav">
+    <div class="shell nav-inner">
+        <a class="brand" href="./index.html">
+            <span class="brand-mark"><img src="./logo.jpg" alt="" /></span>
+            <span class="brand-text">小柠同学<span>3.0</span></span>
+        </a>
+        <button class="nav-toggle" type="button" aria-label="展开导航" aria-expanded="false">
+            <svg class="icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+        <nav class="nav-links" aria-label="主导航">
+            <a class="nav-link" href="./index.html">首页</a>
+            <a class="nav-link" href="./features.html">功能特性</a>
+            <a class="nav-link is-current" href="./download.html">下载</a>
+            <a class="nav-link" href="./changelog.html">更新日志</a>
+            <button class="btn btn-solid btn-md nav-cta" type="button" onclick="downloadAPK()">
+                <svg class="icon icon-sm" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
+                <span>下载</span>
+            </button>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+    <!-- 页面标题 -->
+    <section class="shell page-head">
+        <span class="kicker">下载</span>
+        <h1>下载小柠同学</h1>
+        <p>获取最新版本的 Android 应用，也可以在这里回退到任意历史版本。</p>
+    </section>
+
+    <!-- 当前版本 -->
+    <section class="shell band-line band">
+        <div class="section-head">
+            <span class="kicker">当前版本</span>
+            <h2>最新发布</h2>
+            <p>版本信息由站点配置文件读取，始终与最新发布保持一致。</p>
+        </div>
+
+        <div id="latestCard"></div>
+    </section>
+
+    <!-- 运行要求 -->
+    <section class="band band-soft">
+        <div class="shell">
+            <div class="section-head">
+                <span class="kicker">运行要求</span>
+                <h2>安装前请确认</h2>
+                <p>小柠同学面向 Android 设备，安装前请确认以下信息。</p>
+            </div>
+
+            <div class="grid grid-3">
+                <article class="card card-lift">
+                    <div class="glyph" aria-hidden="true">
+                        <svg class="icon" viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
+                    </div>
+                    <h3>系统版本</h3>
+                    <p>Android 5.1 及以上。</p>
+                </article>
+                <article class="card card-lift">
+                    <div class="glyph" aria-hidden="true">
+                        <svg class="icon" viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41 13.42 20.6a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><path d="M7 7h.01"/></svg>
+                    </div>
+                    <h3>授权</h3>
+                    <p>免费使用，无需付费。</p>
+                </article>
+                <article class="card card-lift">
+                    <div class="glyph" aria-hidden="true">
+                        <svg class="icon" viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+                    </div>
+                    <h3>大小</h3>
+                    <p>以实际文件为准。</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 历史版本 -->
+    <section class="shell band" id="history">
+        <div class="section-head">
+            <span class="kicker">历史版本</span>
+            <h2>历史版本</h2>
+            <p>这里收录了所有已发布的版本，建议优先使用最新版；旧版本仅供回退使用。</p>
+        </div>
+
+        <div id="releaseList"></div>
+    </section>
+
+    <!-- 引导下载 -->
+    <section class="shell cta-band">
+        <div class="cta">
+            <h2>准备好开始了吗</h2>
+            <p>下载最新版本，体验焕然一新的小柠同学。</p>
+            <div class="hero-actions">
+                <button class="btn btn-inverse btn-lg" type="button" onclick="downloadAPK()">
+                    <svg class="icon icon-sm" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
+                    下载 Android 版
+                </button>
+                <a class="btn btn-outline btn-lg" href="./changelog.html">查看更新日志</a>
+            </div>
+            <p class="foot">支持 Android 5.1 及以上 · 完全免费</p>
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="shell">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a class="brand" href="./index.html">
+                    <span class="brand-mark"><img src="./logo.jpg" alt="" /></span>
+                    <span class="brand-text">小柠同学<span>3.0</span></span>
+                </a>
+                <p>一个更懂你的 AI 智能助手。由闪电科技团队出品。</p>
+            </div>
+            <div class="footer-col">
+                <h4>产品</h4>
+                <ul>
+                    <li><a href="./features.html">功能特性</a></li>
+                    <li><a href="./download.html">下载小柠同学</a></li>
+                    <li><a href="./changelog.html">更新日志</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>团队</h4>
+                <ul>
+                    <li><a href="https://lightning-team.de5.net/" target="_blank" rel="noopener">闪电科技团队</a></li>
+                    <li><a href="https://ai.lightning-team.de5.net/" target="_blank" rel="noopener">小柠同学 API</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>更多</h4>
+                <ul>
+                    <li><a href="./download.html#history">历史版本</a></li>
+                    <li><a href="./changelog.html">版本记录</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© <span data-year>2026</span> 小柠同学 · 用 AI 温暖每一刻</span>
+            <nav>
+                <a href="./features.html">功能特性</a>
+                <a href="./download.html">下载</a>
+                <a href="./changelog.html">更新日志</a>
+            </nav>
+        </div>
+    </div>
+</footer>
+
+<script src="./versions.js"></script>
+<script src="./assets/js/site.js"></script>
+<script>
+    /* 当前版本卡片 */
+    (function () {
+        const mount = document.getElementById('latestCard');
+        if (!mount) return;
+
+        const release = window.latestRelease();
+        if (!release) {
+            mount.innerHTML = '<p class="placeholder">当前暂无可用版本，请稍后再来看看</p>';
+            return;
+        }
+
+        mount.innerHTML = `
+            <div class="card card-lift">
+                <span class="tag tag-solid">最新版本</span>
+                <h3>小柠同学 ${window.escapeHtml(release.version)}</h3>
+                <p>${window.escapeHtml(release.description || '')}</p>
+                <div class="chips mt-24">
+                    <span class="chip">发布日期：${window.escapeHtml(release.date || '—')}</span>
+                    <span class="chip">文件名：${window.escapeHtml(release.filename || '—')}</span>
+                </div>
+                <button class="btn btn-solid btn-lg" type="button" onclick="downloadAPK()">
+                    <svg class="icon icon-sm" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
+                    下载 APK
+                </button>
+            </div>`;
+    })();
+
+    /* 历史版本列表 */
+    window.renderReleases(document.getElementById('releaseList'));
+</script>
+</body>
+</html>

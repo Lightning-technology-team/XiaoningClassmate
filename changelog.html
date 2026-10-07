@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="小柠同学更新日志 —— 记录每一次版本变化，内容来自项目 README，涵盖 3.0.0 的界面重构、架构重写、屏幕适配与工具箱上新等更新。" />
+    <title>更新日志 · 小柠同学</title>
+
+    <link rel="icon" type="image/jpeg" href="./logo.jpg" />
+    <link rel="apple-touch-icon" href="./logo.jpg" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/misans@5.0.0/lib/Normal/MiSansVF.min.css" />
+    <script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.__motionReady)document.documentElement.classList.remove('js');},2500);</script>
+    <link rel="stylesheet" href="./assets/css/site.css" />
+</head>
+<body>
+
+<header class="nav">
+    <div class="shell nav-inner">
+        <a class="brand" href="./index.html">
+            <span class="brand-mark"><img src="./logo.jpg" alt="" /></span>
+            <span class="brand-text">小柠同学<span>3.0</span></span>
+        </a>
+        <button class="nav-toggle" type="button" aria-label="展开导航" aria-expanded="false">
+            <svg class="icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+        <nav class="nav-links" aria-label="主导航">
+            <a class="nav-link" href="./index.html">首页</a>
+            <a class="nav-link" href="./features.html">功能特性</a>
+            <a class="nav-link" href="./download.html">下载</a>
+            <a class="nav-link is-current" href="./changelog.html">更新日志</a>
+            <button class="btn btn-solid btn-md nav-cta" type="button" onclick="downloadAPK()">
+                <svg class="icon icon-sm" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
+                <span>下载</span>
+            </button>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+    <!-- 页面标题 -->
+    <section class="shell page-head">
+        <span class="kicker">更新日志</span>
+        <h1>更新日志</h1>
+        <p>这里记录小柠同学 App 的每一次版本变化，内容来自项目 README。</p>
+    </section>
+
+    <!-- 更新内容 -->
+    <section class="shell band-line band">
+        <div class="section-head">
+            <span class="kicker">版本记录</span>
+            <h2>每一次变化，都记录在这里</h2>
+            <p>下方内容直接读取项目 README，并随版本发布同步更新。</p>
+        </div>
+
+        <div class="shell shell-narrow">
+            <div class="doc" id="changelogBody"><p class="placeholder">加载中…</p></div>
+        </div>
+    </section>
+
+    <!-- 引导下载 -->
+    <section class="shell cta-band">
+        <div class="callout">
+            <div class="body">
+                <h3>用上最新版本</h3>
+                <p>更新日志里的新变化，下载 3.0.0 即可体验。支持 Android 5.1 及以上，完全免费。</p>
+            </div>
+            <button class="btn btn-solid btn-lg" type="button" onclick="downloadAPK()">
+                <svg class="icon icon-sm" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
+                下载 Android 版
+            </button>
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="shell">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a class="brand" href="./index.html">
+                    <span class="brand-mark"><img src="./logo.jpg" alt="" /></span>
+                    <span class="brand-text">小柠同学<span>3.0</span></span>
+                </a>
+                <p>一个更懂你的 AI 智能助手。由闪电科技团队出品。</p>
+            </div>
+            <div class="footer-col">
+                <h4>产品</h4>
+                <ul>
+                    <li><a href="./features.html">功能特性</a></li>
+                    <li><a href="./download.html">下载小柠同学</a></li>
+                    <li><a href="./changelog.html">更新日志</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>团队</h4>
+                <ul>
+                    <li><a href="https://lightning-team.de5.net/" target="_blank" rel="noopener">闪电科技团队</a></li>
+                    <li><a href="https://ai.lightning-team.de5.net/" target="_blank" rel="noopener">小柠同学 API</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>更多</h4>
+                <ul>
+                    <li><a href="./download.html#history">历史版本</a></li>
+                    <li><a href="./changelog.html">版本记录</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© <span data-year>2026</span> 小柠同学 · 用 AI 温暖每一刻</span>
+            <nav>
+                <a href="./features.html">功能特性</a>
+                <a href="./download.html">下载</a>
+                <a href="./changelog.html">更新日志</a>
+            </nav>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="./versions.js"></script>
+<script src="./assets/js/site.js"></script>
+<script>
+    /* 渲染更新日志（内容来自项目 README） */
+    window.renderChangelog(document.getElementById('changelogBody'));
+</script>
+</body>
+</html>
