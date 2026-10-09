@@ -73,7 +73,7 @@ img, svg { display: block; }
 
 /* ===== 03 Layout ===== */
 .shell { width: 100%; max-width: var(--shell); margin: 0 auto; padding: 0 24px; }
-.shell-narrow { max-width: 860px; }
+.shell-narrow { max-width: 860px; margin-left: auto; margin-right: auto; }
 
 .band { padding: 144px 0; }
 .band-sm { padding: 96px 0; }
